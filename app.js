@@ -80,12 +80,13 @@ function renderMiniTimeline(events) {
 
         return `
           <div class="timeline-item ${side}">
-            <div class="timeline-point"></div>
             <div class="timeline-card">
               <span class="mini-date">${escapeHtml(event.date)}</span>
               <h3 class="mini-title">${escapeHtml(event.title)}</h3>
               <div class="mini-category">${escapeHtml(event.categoryLabel)}</div>
             </div>
+            <div class="timeline-stem"></div>
+            <div class="timeline-point"></div>
           </div>
         `;
       })

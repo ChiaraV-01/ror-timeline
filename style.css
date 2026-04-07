@@ -174,7 +174,7 @@ h1 {
 .horizontal-timeline {
   position: relative;
   min-width: 1500px;
-  padding: 190px 24px;
+  padding: 170px 24px;
   display: grid;
   align-items: center;
 }
@@ -194,6 +194,7 @@ h1 {
   height: 100%;
 }
 
+/* punto sulla linea */
 .timeline-point {
   position: absolute;
   left: 50%;
@@ -207,26 +208,7 @@ h1 {
   z-index: 3;
 }
 
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: var(--border);
-  z-index: 1;
-}
-
-.timeline-item.top::after {
-  top: calc(50% - 110px);
-  height: 110px;
-}
-
-.timeline-item.bottom::after {
-  top: 50%;
-  height: 110px;
-}
-
+/* card */
 .timeline-card {
   position: absolute;
   left: 50%;
@@ -241,14 +223,39 @@ h1 {
   z-index: 2;
 }
 
+/* sopra */
 .timeline-item.top .timeline-card {
   top: 0;
 }
 
+/* sotto */
 .timeline-item.bottom .timeline-card {
   bottom: 0;
 }
 
+/* trattino verticale che collega linea e box */
+.timeline-stem {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--border);
+  z-index: 1;
+}
+
+/* per box sopra: dal fondo della card alla linea */
+.timeline-item.top .timeline-stem {
+  top: 122px;
+  height: calc(50% - 122px);
+}
+
+/* per box sotto: dalla linea fino alla cima della card */
+.timeline-item.bottom .timeline-stem {
+  top: 50%;
+  height: calc(100% - 122px - 50%);
+}
+
+/* testi mini-card */
 .mini-date {
   display: inline-block;
   color: var(--accent);
@@ -260,8 +267,8 @@ h1 {
 
 .mini-title {
   margin: 0 0 8px;
-  font-size: 0.95rem;
-  line-height: 1.22;
+  font-size: 0.92rem;
+  line-height: 1.2;
 }
 
 .mini-category {
