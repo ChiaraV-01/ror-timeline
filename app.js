@@ -70,17 +70,25 @@ function renderMiniTimeline(events) {
     return;
   }
 
-  miniTimeline.innerHTML = events
-    .map(
-      (event) => `
-        <article class="mini-event">
-          <span class="mini-date">${escapeHtml(event.date)}</span>
-          <h3 class="mini-title">${escapeHtml(event.title)}</h3>
-          <div class="mini-category">${escapeHtml(event.categoryLabel)}</div>
-        </article>
-      `
-    )
-    .join("");
+  miniTimeline.innerHTML = `
+    <div class="timeline-line"></div>
+    ${events
+      .map((event, index) => {
+        const side = index % 2 === 0 ? "top" : "bottom";
+
+        return `
+          <div class="timeline-item ${side}">
+            <div class="timeline-point"></div>
+            <div class="timeline-card">
+              <span class="mini-date">${escapeHtml(event.date)}</span>
+              <h3 class="mini-title">${escapeHtml(event.title)}</h3>
+              <div class="mini-category">${escapeHtml(event.categoryLabel)}</div>
+            </div>
+          </div>
+        `;
+      })
+      .join("")}
+  `;
 }
 
 function renderEvents(events) {
