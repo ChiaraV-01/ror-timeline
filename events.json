@@ -1,7 +1,7 @@
 [
   {
-    "year": -9530,
-    "date": "-9530 AR",
+    "year": -6530,
+    "date": "-6530 AR",
     "title": "Fondazione di Thassilon",
     "category": "origins",
     "categoryLabel": "Origini",
@@ -9,7 +9,7 @@
     "notes": "È il punto di partenza della cronologia thassiloniana."
   },
   {
-    "year": -9529,
+    "year": -6525,
     "date": "Primi anni dopo la fondazione",
     "title": "Il progetto di Xin prende forma",
     "category": "origins",
@@ -18,7 +18,7 @@
     "notes": "Evento sintetico utile a contestualizzare il senso dell’impero."
   },
   {
-    "year": -9510,
+    "year": -6510,
     "date": "Primi decenni dell’impero",
     "title": "Xin stringe patti con poteri superiori",
     "category": "empire",
@@ -27,7 +27,7 @@
     "notes": "La magia runica diventa il fondamento spirituale e materiale di Thassilon."
   },
   {
-    "year": -9500,
+    "year": -6505,
     "date": "Durante l’espansione iniziale",
     "title": "Diffusione del culto di Lissala",
     "category": "empire",
@@ -36,7 +36,7 @@
     "notes": "Il culto di Lissala si intreccia alla legittimità del potere imperiale."
   },
   {
-    "year": -9480,
+    "year": -6500,
     "date": "Nel pieno dell’espansione",
     "title": "L’impero ingloba le popolazioni della regione",
     "category": "empire",
@@ -45,22 +45,21 @@
     "notes": "Snodo utile per spiegare la vastità dell’influenza thassiloniana."
   },
   {
-    "year": -9420,
-    "date": "-9420 AR",
-    "title": "Morte di Xin",
-    "category": "empire",
-    "categoryLabel": "Impero",
-    "description": "Xin muore dopo aver governato per oltre centodieci anni. Secondo i racconti dell’epoca, fa evacuare il proprio palazzo e si immola con la sua stessa magia, distruggendo l’edificio insieme a sé in un ultimo gesto leggendario.",
-    "notes": "La sua morte viene ricordata come teatrale e quasi mitica."
-  },
-  {
     "year": -6480,
     "date": "-6480 AR",
     "title": "Nomina dei Sette Signori delle Rune",
     "category": "runelords",
     "categoryLabel": "Runelord",
-    "description": "Per governare un territorio ormai vastissimo, Xin nomina i primi Sette Signori delle Rune come suoi delegati. Tra essi figurano anche Sorshen e Xanderghul.",
-    "notes": "Questo evento riprende la cronologia alternativa che avevi indicato in precedenza."
+    "description": "Per governare un territorio ormai vastissimo, Xin nomina i primi Sette Signori delle Rune come suoi delegati. Tra essi figurano anche Sorshen e Xanderghul, compagni storici di Xin.",
+  },
+    {
+    "year": -6420,
+    "date": "-6420 AR",
+    "title": "Morte di Xin",
+    "category": "empire",
+    "categoryLabel": "Impero",
+    "description": "Xin muore dopo aver governato per oltre centodieci anni. Secondo i racconti dell’epoca, fa evacuare il proprio palazzo e si immola con la sua stessa magia, distruggendo l’edificio insieme a sé in un ultimo gesto leggendario.",
+    "notes": "La sua morte viene ricordata come teatrale e quasi mitica."
   },
   {
     "year": -5305,
