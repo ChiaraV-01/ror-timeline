@@ -70,6 +70,8 @@ function renderMiniTimeline(events) {
     return;
   }
 
+  miniTimeline.style.gridTemplateColumns = `repeat(${events.length}, 1fr)`;
+
   miniTimeline.innerHTML = `
     <div class="timeline-line"></div>
     ${events

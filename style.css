@@ -133,31 +133,116 @@ h1 {
   margin: 0;
   color: var(--muted);
 }
-
 .horizontal-timeline-wrapper {
   overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-
-.horizontal-timeline::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 54px;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(203, 165, 90, 0.2), var(--accent), rgba(203, 165, 90, 0.2));
+  overflow-y: hidden;
+  padding-bottom: 10px;
 }
 
 .horizontal-timeline {
   position: relative;
-  padding: 80px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
+  min-width: 1400px;
+  padding: 170px 20px 170px;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  align-items: center;
 }
 
+/* linea centrale */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* singolo item */
+.timeline-item {
+  position: relative;
+  height: 100%;
+}
+
+/* punto sulla linea */
+.timeline-point {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+  z-index: 3;
+}
+
+/* stanghetta verticale */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--border);
+  z-index: 1;
+}
+
+.timeline-item.top::after {
+  top: calc(50% - 95px);
+  height: 95px;
+}
+
+.timeline-item.bottom::after {
+  top: 50%;
+  height: 95px;
+}
+
+/* card */
+.timeline-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  min-height: 124px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  box-shadow: var(--shadow);
+  z-index: 2;
+}
+
+.timeline-item.top .timeline-card {
+  top: 0;
+}
+
+.timeline-item.bottom .timeline-card {
+  bottom: 0;
+}
+
+.mini-date {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.mini-title {
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+  line-height: 1.22;
+}
+
+.mini-category {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
 /* linea centrale */
 .timeline-line {
   position: absolute;
@@ -228,19 +313,6 @@ h1 {
 .timeline-item.bottom::after {
   bottom: 50%;
   height: 24px;
-}
-
-
-.mini-event::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 18px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .mini-date {
