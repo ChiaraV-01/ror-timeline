@@ -171,19 +171,26 @@ h1 {
   padding: 8px 0 18px;
 }
 
+/*
+  grid-auto-rows: 400px  →  ogni item è esattamente 400px di altezza
+  La linea sta a top: 200px (metà esatta)
+  Card top:    occupa   0–120px,  gambo 136→194px (58px visibili)
+  Card bottom: occupa 280–400px,  gambo 206→264px (58px visibili)
+*/
 .horizontal-timeline {
   position: relative;
-  padding: 200px 40px;
   display: grid;
-  align-items: center;
+  grid-auto-rows: 400px;
+  align-items: stretch;
+  padding: 0 40px;
 }
 
-/* linea principale */
+/* linea principale — pixel fissi, niente percentuali */
 .timeline-line {
   position: absolute;
   left: 40px;
   right: 40px;
-  top: 50%;
+  top: 200px;
   height: 2px;
   transform: translateY(-50%);
   background: linear-gradient(
@@ -194,50 +201,50 @@ h1 {
     rgba(203, 165, 90, 0.0)
   );
   box-shadow: 0 0 10px rgba(203, 165, 90, 0.15);
+  z-index: 2;
 }
 
 /* singolo item */
 .timeline-item {
   position: relative;
-  height: 100%;
 }
 
-/* punto sulla linea */
+/* punto sulla linea — centrato a 200px */
 .timeline-point {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 200px;
   width: 11px;
   height: 11px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #f5d98a, var(--accent));
   box-shadow:
-    0 0 0 3px rgba(203, 165, 90, 0.2),
-    0 0 0 1px rgba(203, 165, 90, 0.5);
-  z-index: 4;
+    0 0 0 3px rgba(203, 165, 90, 0.22),
+    0 0 0 1px rgba(203, 165, 90, 0.55);
+  z-index: 5;
 }
 
-/* gambo tratteggiato */
+/* gambo tratteggiato — pixel fissi */
 .timeline-stem {
   position: absolute;
   left: 50%;
   width: 0;
   transform: translateX(-50%);
-  border-left: 1px dashed rgba(140, 165, 195, 0.5);
+  border-left: 1px dashed rgba(150, 175, 205, 0.55);
   z-index: 1;
 }
 
-/* top: card da 0 a 130px, gap 30px, gambo da 160px fino al centro (200px) */
+/* top: card finisce a 120px, gap 16px → gambo 136→194px */
 .timeline-item.top .timeline-stem {
-  top: 132px;
-  height: calc(50% - 132px);
+  top: 136px;
+  height: 58px;
 }
 
-/* bottom: gambo dal centro (200px) fino a 30px sopra la card (270px) */
+/* bottom: dopo la linea a 206px → gambo 206→264px, card inizia a 280px */
 .timeline-item.bottom .timeline-stem {
-  top: 50%;
-  height: calc(50% - 132px);
+  top: 206px;
+  height: 58px;
 }
 
 /* card */
@@ -246,32 +253,33 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   width: 168px;
-  min-height: 110px;
-  padding: 13px 15px;
+  padding: 13px 15px 14px;
   border-radius: 12px;
-  background: rgba(14, 20, 29, 0.96);
-  border: 1px solid rgba(75, 100, 132, 0.32);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  background: rgba(14, 20, 29, 0.97);
+  border: 1px solid rgba(75, 100, 132, 0.3);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.38);
   z-index: 3;
   transition: transform 160ms ease, border-color 160ms ease;
 }
 
+/* top card: 0→120px (con padding 13+14=27, min content ≈ 93px) */
 .timeline-item.top .timeline-card {
-  top: 0;
+  top: 16px;
 }
 
+/* bottom card: da 280px a fine (400px) */
 .timeline-item.bottom .timeline-card {
-  bottom: 0;
+  top: 280px;
 }
 
 .timeline-item.top .timeline-card:hover {
   transform: translateX(-50%) translateY(-3px);
-  border-color: rgba(203, 165, 90, 0.4);
+  border-color: rgba(203, 165, 90, 0.38);
 }
 
 .timeline-item.bottom .timeline-card:hover {
   transform: translateX(-50%) translateY(3px);
-  border-color: rgba(203, 165, 90, 0.4);
+  border-color: rgba(203, 165, 90, 0.38);
 }
 
 /* testi */
