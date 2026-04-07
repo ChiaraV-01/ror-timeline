@@ -133,6 +133,7 @@ h1 {
   margin: 0;
   color: var(--muted);
 }
+
 .horizontal-timeline-wrapper {
   overflow-x: auto;
   overflow-y: hidden;
@@ -141,18 +142,17 @@ h1 {
 
 .horizontal-timeline {
   position: relative;
-  min-width: 1400px;
-  padding: 170px 20px 170px;
+  min-width: 1500px;
+  padding: 170px 24px;
   display: grid;
-  grid-template-columns: repeat(11, 1fr);
   align-items: center;
 }
 
 /* linea centrale */
 .timeline-line {
   position: absolute;
-  left: 20px;
-  right: 20px;
+  left: 24px;
+  right: 24px;
   top: 50%;
   height: 2px;
   transform: translateY(-50%);
@@ -191,13 +191,13 @@ h1 {
 }
 
 .timeline-item.top::after {
-  top: calc(50% - 95px);
-  height: 95px;
+  top: calc(50% - 92px);
+  height: 92px;
 }
 
 .timeline-item.bottom::after {
   top: 50%;
-  height: 95px;
+  height: 92px;
 }
 
 /* card */
@@ -205,8 +205,8 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  min-height: 124px;
+  width: 165px;
+  min-height: 122px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -234,13 +234,13 @@ h1 {
 
 .mini-title {
   margin: 0 0 8px;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   line-height: 1.22;
 }
 
 .mini-category {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   line-height: 1.2;
 }
 /* linea centrale */
