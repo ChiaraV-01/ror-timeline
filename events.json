@@ -1,0 +1,101 @@
+[
+  {
+    "year": -9530,
+    "date": "-9530 AR",
+    "title": "Fondazione di Thassilon",
+    "category": "origins",
+    "categoryLabel": "Origini",
+    "description": "Thassilon viene fondato da esuli di Azlant approdati in Varisia dopo anni di viaggio. Gli storici collocano in questo periodo la nascita dell’impero destinato a dominare la regione.",
+    "notes": "È il punto di partenza della cronologia thassiloniana."
+  },
+  {
+    "year": -9529,
+    "date": "Primi anni dopo la fondazione",
+    "title": "Il progetto di Xin prende forma",
+    "category": "origins",
+    "categoryLabel": "Origini",
+    "description": "A differenza degli Azlanti, Thassilon si propone come obiettivo quello di costruire un paradiso in terra. Xin inizia a modellare il proprio regno intorno a questo ideale politico, filosofico e magico.",
+    "notes": "Evento sintetico utile a contestualizzare il senso dell’impero."
+  },
+  {
+    "year": -9510,
+    "date": "Primi decenni dell’impero",
+    "title": "Xin stringe patti con poteri superiori",
+    "category": "empire",
+    "categoryLabel": "Impero",
+    "description": "Per consolidare il proprio dominio, Xin stringe patti con draghi e con esseri provenienti dal Grande Oltre. Da queste alleanze ottiene la conoscenza della Magia Runica, ritenuta vicina ai misteri stessi della creazione.",
+    "notes": "La magia runica diventa il fondamento spirituale e materiale di Thassilon."
+  },
+  {
+    "year": -9500,
+    "date": "Durante l’espansione iniziale",
+    "title": "Diffusione del culto di Lissala",
+    "category": "empire",
+    "categoryLabel": "Impero",
+    "description": "Xin usa la magia runica per edificare il regno e consolidare il culto di Lissala, che diventa una presenza centrale nell’identità religiosa di Thassilon.",
+    "notes": "Il culto di Lissala si intreccia alla legittimità del potere imperiale."
+  },
+  {
+    "year": -9480,
+    "date": "Nel pieno dell’espansione",
+    "title": "L’impero ingloba le popolazioni della regione",
+    "category": "empire",
+    "categoryLabel": "Impero",
+    "description": "Con il passare del tempo Thassilon si espande fino a inglobare progressivamente le popolazioni dell’intera regione, diventando una potenza territoriale e culturale dominante.",
+    "notes": "Snodo utile per spiegare la vastità dell’influenza thassiloniana."
+  },
+  {
+    "year": -9420,
+    "date": "-9420 AR",
+    "title": "Morte di Xin",
+    "category": "empire",
+    "categoryLabel": "Impero",
+    "description": "Xin muore dopo aver governato per oltre centodieci anni. Secondo i racconti dell’epoca, fa evacuare il proprio palazzo e si immola con la sua stessa magia, distruggendo l’edificio insieme a sé in un ultimo gesto leggendario.",
+    "notes": "La sua morte viene ricordata come teatrale e quasi mitica."
+  },
+  {
+    "year": -6480,
+    "date": "-6480 AR",
+    "title": "Nomina dei Sette Signori delle Rune",
+    "category": "runelords",
+    "categoryLabel": "Runelord",
+    "description": "Per governare un territorio ormai vastissimo, Xin nomina i primi Sette Signori delle Rune come suoi delegati. Tra essi figurano anche Sorshen e Xanderghul.",
+    "notes": "Questo evento riprende la cronologia alternativa che avevi indicato in precedenza."
+  },
+  {
+    "year": -5305,
+    "date": "-5305 AR",
+    "title": "Malfeshnekor devasta il centro di ricerca sotto Magnimar",
+    "category": "runelords",
+    "categoryLabel": "Runelord",
+    "description": "Malfeshnekor distrugge il centro di ricerca situato sotto quella che in epoche successive sarà l’area di Magnimar.",
+    "notes": "Evento significativo per i collegamenti con Varisia e con la campagna."
+  },
+  {
+    "year": -5293,
+    "date": "-5293 AR",
+    "title": "Cataclisma e caduta di Thassilon",
+    "category": "fall",
+    "categoryLabel": "Caduta",
+    "description": "Una pioggia di meteore incenerisce l’intero territorio di Thassilon. L’impero crolla e sopravvivono soltanto rovine e strutture protette in parte dalla magia. Gli storici collocano in questo stesso anno anche la caduta della Pietrastella su Golarion.",
+    "notes": "Evento cardine della cronologia. Da qui nasce la Thassilon perduta."
+  },
+  {
+    "year": -5293,
+    "date": "Dopo il Cataclisma",
+    "title": "Bakrakhan ed Edasseril sprofondano nell’oceano",
+    "category": "fall",
+    "categoryLabel": "Caduta",
+    "description": "A seguito del Cataclisma, le terre di Bakrakhan ed Edasseril sprofondano nell’oceano, segnando la cancellazione fisica di intere parti dell’antico dominio thassiloniano.",
+    "notes": "Conseguenza diretta del collasso dell’impero."
+  },
+  {
+    "year": -4293,
+    "date": "-4293 AR",
+    "title": "Inizio delle prime cronache storiche note",
+    "category": "legacy",
+    "categoryLabel": "Eredità",
+    "description": "Le prime documentazioni della storia varisiana e, più in generale, golariana iniziano in quest’epoca, dopo secoli di oscurità e frammentazione successivi alla caduta di Thassilon.",
+    "notes": "Punto utile per distinguere mito, rovina e vera memoria storica."
+  }
+]

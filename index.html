@@ -4,381 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thassilon Timeline</title>
-  <style>
-    :root {
-      --bg: #0d1117;
-      --panel: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --muted: #9da7b3;
-      --accent: #c9a227;
-      --accent-soft: rgba(201, 162, 39, 0.18);
-      --danger: #b85c5c;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top, rgba(201,162,39,0.08), transparent 35%),
-        linear-gradient(180deg, #0b0f14 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 64px 20px 32px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(13,17,23,0.75);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.78rem;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1.05;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin-top: 14px;
-      color: var(--muted);
-      max-width: 780px;
-      font-size: 1.02rem;
-    }
-
-    main {
-      padding: 36px 20px 80px;
-    }
-
-    .controls {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .control-card,
-    .legend,
-    .event {
-      background: rgba(22,27,34,0.86);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-    }
-
-    .control-card {
-      padding: 16px;
-    }
-
-    .legend {
-      padding: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-content: start;
-    }
-
-    input, select {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: #0f141b;
-      color: var(--text);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 0.98rem;
-      outline: none;
-    }
-
-    input:focus, select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-soft);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 12px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .timeline {
-      position: relative;
-      margin-top: 26px;
-      padding-left: 28px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 9px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--accent), rgba(201,162,39,0.15));
-    }
-
-    .event {
-      position: relative;
-      padding: 18px 18px 18px 20px;
-      margin-bottom: 18px;
-    }
-
-    .event::before {
-      content: "";
-      position: absolute;
-      left: -24px;
-      top: 24px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid #0d1117;
-      box-shadow: 0 0 0 3px rgba(201,162,39,0.18);
-    }
-
-    .event-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .date {
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 0.98rem;
-    }
-
-    .category {
-      font-size: 0.8rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .event h2 {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-      line-height: 1.2;
-    }
-
-    .event p {
-      margin: 0;
-      color: #d2d9e0;
-    }
-
-    .source {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-style: italic;
-    }
-
-    .empty {
-      padding: 22px;
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      color: var(--muted);
-      background: rgba(22,27,34,0.55);
-    }
-
-    footer {
-      padding: 24px 20px 50px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 760px) {
-      .controls {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        position: static;
-      }
-    }
-  </style>
+  <meta name="description" content="Timeline di Thassilon e degli eventi che conducono a Rise of the Runelords." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="eyebrow">Archivio cronologico</div>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Archivio storico</p>
       <h1>Thassilon Timeline</h1>
-      <p class="subtitle">
-        Una timeline consultabile degli eventi principali legati a Thassilon, alla sua caduta e ai fili narrativi che portano a <em>Rise of the Runelords</em>. Pensata per i player: chiara, evocativa e senza sommergerli di lore tutta insieme.
+      <p class="intro">
+        Una cronologia consultabile degli eventi principali legati alla nascita, all’ascesa e alla caduta di Thassilon,
+        pensata come supporto per i player di <em>Rise of the Runelords</em>.
       </p>
     </div>
   </header>
 
-  <main>
-    <div class="wrap">
-      <section class="controls">
-        <div class="control-card">
-          <label for="search"><strong>Cerca un evento</strong></label>
-          <input id="search" type="text" placeholder="Es. Xin, Earthfall, runelord, Sandpoint..." />
+  <main class="container">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <h2>Dal sogno di Xin alla rovina dell’impero</h2>
+        <p>
+          Dalla fondazione da parte degli esuli di Azlant fino al Cataclisma del -5293 AR, questa pagina raccoglie gli eventi
+          fondamentali di Thassilon in una forma leggibile e consultabile.
+        </p>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <span class="meta-label">Periodo coperto</span>
+          <strong>-9530 AR → -4293 AR</strong>
         </div>
-        <div class="legend">
-          <label style="width:100%" for="category"><strong>Filtra per categoria</strong></label>
-          <select id="category">
-            <option value="all">Tutte le categorie</option>
-            <option value="myth">Mito e origini</option>
-            <option value="empire">Impero thassiloniano</option>
+        <div class="meta-card">
+          <span class="meta-label">Tema</span>
+          <strong>Origini, Runelord, Cataclisma</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-title-row">
+        <h2>Timeline sintetica</h2>
+        <p>Una vista rapida degli snodi principali.</p>
+      </div>
+
+      <div class="horizontal-timeline-wrapper">
+        <div id="miniTimeline" class="horizontal-timeline"></div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-title-row">
+        <h2>Cronologia dettagliata</h2>
+        <p>Ricerca e filtra gli eventi principali dell’impero di Thassilon.</p>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label for="searchInput">Cerca</label>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Es. Xin, Lissala, Cataclisma, Runelord..."
+          />
+        </div>
+
+        <div class="control">
+          <label for="categoryFilter">Categoria</label>
+          <select id="categoryFilter">
+            <option value="all">Tutte</option>
+            <option value="origins">Origini</option>
+            <option value="empire">Impero</option>
+            <option value="runelords">Runelord</option>
             <option value="fall">Caduta</option>
             <option value="legacy">Eredità</option>
-            <option value="campaign">Verso Rise of the Runelords</option>
           </select>
-          <span class="pill"><span class="dot"></span> Timeline filtrabile</span>
-          <span class="pill">Perfetta per GitHub Pages</span>
         </div>
-      </section>
+      </div>
 
-      <section id="timeline" class="timeline"></section>
-    </div>
+      <div id="eventsList" class="events-list"></div>
+    </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      Sostituisci pure i testi con la tua versione canonica o con la tua interpretazione da campagna. Questa struttura è fatta per essere aggiornata facilmente anche a mano da GitHub.
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Pagina fan-made per consultazione rapida della lore di Thassilon.
+        Puoi aggiornare il contenuto modificando il file <code>events.json</code>.
+      </p>
     </div>
   </footer>
 
-  <script>
-    const events = [
-      {
-        date: 'Epoche remote',
-        title: 'Le origini leggendarie di Xin',
-        category: 'myth',
-        categoryLabel: 'Mito e origini',
-        description: 'Xin il Fondatore unifica popoli e territori destinati a diventare Thassilon. Attorno alla sua figura si forma il mito dell\'età aurea perduta, spesso ricordata in modo più nobile di quanto forse fosse davvero.',
-        source: 'Fondazione mitica dell\'impero.'
-      },
-      {
-        date: 'Età imperiale',
-        title: 'L\'ascesa dei Runelord',
-        category: 'empire',
-        categoryLabel: 'Impero thassiloniano',
-        description: 'Dopo Xin, il potere si concentra sempre più nelle mani dei signori delle rune. Le sette virtù vengono corrotte nei sette peccati runici, e il dominio politico diventa anche magico, culturale e tirannico.',
-        source: 'Periodo chiave per capire la degenerazione di Thassilon.'
-      },
-      {
-        date: 'Prima della fine',
-        title: 'Thassilon domina il nord di Avistan',
-        category: 'empire',
-        categoryLabel: 'Impero thassiloniano',
-        description: 'L\'impero si estende con città monumentali, strade, fortezze, magie ciclopiche e intere regioni piegate alla volontà dei Runelord. Le rivalità interne, però, scavano crepe sotto la facciata della grandezza.',
-        source: 'Periodo di massima espansione.'
-      },
-      {
-        date: 'Earthfall',
-        title: 'La catastrofe che spezza il mondo',
-        category: 'fall',
-        categoryLabel: 'Caduta',
-        description: 'La pioggia di fuoco dal cielo sconvolge Golarion. Thassilon crolla insieme a molte altre civiltà. Alcuni Runelord sopravvivono tramite magie preparate in anticipo, mentre il resto dell\'impero viene sepolto, frantumato o dimenticato.',
-        source: 'Evento spartiacque della storia antica.'
-      },
-      {
-        date: 'Secoli successivi',
-        title: 'Rovine, memoria spezzata e miti distorti',
-        category: 'legacy',
-        categoryLabel: 'Eredità',
-        description: 'Le vestigia thassiloniane restano disseminate nel Varisia e oltre. Torri, simboli, rune e antiche strutture vengono reinterpretate da culture successive che spesso ne ignorano il significato reale.',
-        source: 'È qui che la storia diventa leggenda.'
-      },
-      {
-        date: 'Età recente',
-        title: 'I segni del passato riemergono in Varisia',
-        category: 'legacy',
-        categoryLabel: 'Eredità',
-        description: 'Esploratori, studiosi, cultisti e predatori tornano a interessarsi alle rovine thassiloniane. Ciò che sembrava morto inizia lentamente a muoversi sotto la superficie del presente.',
-        source: 'Preludio alla campagna.'
-      },
-      {
-        date: 'Poco prima della campagna',
-        title: 'Antiche trame convergono verso Sandpoint',
-        category: 'campaign',
-        categoryLabel: 'Verso Rise of the Runelords',
-        description: 'Eventi locali, culti, reliquie e memorie sommerse iniziano a intrecciarsi. Quello che per molti abitanti è solo folklore si rivela parte di una storia immensamente più antica e pericolosa.',
-        source: 'Ponte ideale tra lore e avventura.'
-      },
-      {
-        date: 'Inizio di Rise of the Runelords',
-        title: 'La storia sepolta torna a reclamare il presente',
-        category: 'campaign',
-        categoryLabel: 'Verso Rise of the Runelords',
-        description: 'Con l\'inizio della campagna, i personaggi entrano in contatto con eventi che non appartengono solo al loro tempo: le rovine di Thassilon non sono mai state davvero silenziose.',
-        source: 'Punto di ingresso per i player.'
-      }
-    ];
-
-    const timeline = document.getElementById('timeline');
-    const search = document.getElementById('search');
-    const category = document.getElementById('category');
-
-    function render() {
-      const term = search.value.trim().toLowerCase();
-      const cat = category.value;
-
-      const filtered = events.filter(event => {
-        const matchesCategory = cat === 'all' || event.category === cat;
-        const blob = `${event.date} ${event.title} ${event.description} ${event.categoryLabel}`.toLowerCase();
-        const matchesSearch = !term || blob.includes(term);
-        return matchesCategory && matchesSearch;
-      });
-
-      if (!filtered.length) {
-        timeline.innerHTML = '<div class="empty">Nessun evento trovato con questi filtri. Prova a cambiare parola chiave o categoria.</div>';
-        return;
-      }
-
-      timeline.innerHTML = filtered.map(event => `
-        <article class="event">
-          <div class="event-top">
-            <span class="date">${event.date}</span>
-            <span class="category">${event.categoryLabel}</span>
-          </div>
-          <h2>${event.title}</h2>
-          <p>${event.description}</p>
-          <div class="source">${event.source}</div>
-        </article>
-      `).join('');
-    }
-
-    search.addEventListener('input', render);
-    category.addEventListener('change', render);
-    render();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
