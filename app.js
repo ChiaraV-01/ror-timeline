@@ -132,4 +132,45 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+// ── MODAL TIMELINE VERTICALE (mobile) ──────────────────────────
+
+function renderVerticalTimeline(events) {
+  const vtlList = document.getElementById("vtlList");
+  if (!vtlList) return;
+
+  vtlList.innerHTML = events
+    .map(
+      (event) => `
+      <div class="vtl-item">
+        <div class="vtl-dot"></div>
+        <div class="vtl-card">
+          <span class="mini-date">${escapeHtml(event.date)}</span>
+          <h3 class="mini-title">${escapeHtml(event.title)}</h3>
+          <div class="mini-category">${escapeHtml(event.categoryLabel)}</div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+}
+
+function openVtlModal() {
+  renderVerticalTimeline(allEvents);
+  document.getElementById("vtlModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeVtlModal() {
+  document.getElementById("vtlModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("openVtlBtn").addEventListener("click", openVtlModal);
+document.getElementById("vtlClose").addEventListener("click", closeVtlModal);
+
+// chiudi con Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeVtlModal();
+});
+
 loadEvents();

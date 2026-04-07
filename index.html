@@ -61,7 +61,22 @@
       <div class="horizontal-timeline-wrapper">
         <div id="miniTimeline" class="horizontal-timeline"></div>
       </div>
+
+      <button class="timeline-mobile-btn" id="openVtlBtn">
+        Mostra timeline sinottica
+      </button>
     </section>
+
+    <!-- MODAL: timeline verticale (solo mobile) -->
+    <div class="vtl-modal" id="vtlModal" aria-modal="true" role="dialog">
+      <div class="vtl-header">
+        <h2>Timeline sinottica</h2>
+        <button class="vtl-close" id="vtlClose" aria-label="Chiudi">✕</button>
+      </div>
+      <div class="vtl-body">
+        <div class="vtl-list" id="vtlList"></div>
+      </div>
+    </div>
 
     <section class="section-block">
       <div class="section-title-row">
