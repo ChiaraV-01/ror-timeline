@@ -70,7 +70,7 @@ function renderMiniTimeline(events) {
     return;
   }
 
-  const colWidth = 210;
+  const colWidth = 150;
   miniTimeline.style.gridTemplateColumns = `repeat(${events.length}, minmax(${colWidth}px, 1fr))`;
   miniTimeline.style.minWidth = `${events.length * colWidth + 80}px`;
 
