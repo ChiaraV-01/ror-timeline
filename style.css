@@ -12,7 +12,7 @@
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
   --radius: 18px;
   --radius-sm: 12px;
-  --max: 1280px;;
+  --max: 1680px;;
 }
 
 * {
@@ -34,7 +34,7 @@ body {
 }
 
 .container {
-  width: min(var(--max), calc(100% - 40px));
+  width: min(var(--max), calc(100% - 64px));
   margin: 0 auto;
 }
 
@@ -349,19 +349,22 @@ code {
 
 .header-art {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-art img {
   display: block;
   width: 100%;
-  max-width: 460px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  opacity: 0.94;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
 }
 
 .site-header {
